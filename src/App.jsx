@@ -2,16 +2,18 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+import {useDispatch} from 'react-redux'
+import { decrement, increment} from './redux/slices/CounterSlice'
+
+import Counter from './components/Counter'
+
 function App() {
+    const dispatch = useDispatch()
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.jsx</code> and save to reload!
-				</p>
-				<span className="App-link">Hello from codedamn :)</span>
-			</header>
+			<button onClick={e => dispatch(increment())}>+</button>
+            <Counter />
+            <button onClick={e => dispatch(decrement())}>-</button>
 		</div>
 	)
 }
