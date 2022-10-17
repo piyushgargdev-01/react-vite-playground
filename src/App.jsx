@@ -2,16 +2,16 @@ import React from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+import {useCountStore} from './store/counter'
+
 function App() {
+    const counter = useCountStore();
+    console.log(counter)
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.jsx</code> and save to reload!
-				</p>
-				<span className="App-link">Hello from codedamn :)</span>
-			</header>
+			<button onClick={e => counter.increment()}>+</button>
+            <h1>{counter.value}</h1>
+			<button onClick={e => counter.decrement()}>-</button>
 		</div>
 	)
 }
