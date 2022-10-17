@@ -1,17 +1,17 @@
 import React from 'react'
+import {useDispatch} from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
 
+import Count from './components/Count'
+
 function App() {
+    const dispatch = useDispatch();
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.jsx</code> and save to reload!
-				</p>
-				<span className="App-link">Hello from codedamn :)</span>
-			</header>
+			<button onClick={e => dispatch({ type: 'increment' })}>+</button>
+            <Count />
+            <button onClick={e => dispatch({ type: 'decrement' })}>-</button>
 		</div>
 	)
 }
